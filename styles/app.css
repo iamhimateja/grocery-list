@@ -425,6 +425,9 @@ input#item-quantity {
 
 ul#groceries-list {
   margin-top: 15px;
+  max-height: calc(100% - 10rem);
+  overflow-y: scroll;
+  padding: 0 15px;
 }
 
 #groceries-list li.empty-message {

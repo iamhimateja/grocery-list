@@ -29,12 +29,12 @@ const updateActors = () => {
     const user = app.findUser(element.dataset.username);
     const currentUser = app.currentUser();
     if (user) {
-      if(user.password != encodePassword(element.querySelector('.charecter-password').innerText)) {
-        element.querySelector('.charecter-password').innerText = "(changed)"
+      if(user.password != encodePassword(element.querySelector('.character-password').innerText)) {
+        element.querySelector('.character-password').innerText = "(changed)"
       }
       if (currentUser) {
         if (currentUser.name == user.name) {
-          element.classList.add("selectedCharecter");
+          element.classList.add("selectedCharacter");
         }
       }
     }
@@ -43,7 +43,7 @@ const updateActors = () => {
 
 function App() {
   let $this = this;
-  const MAX_GROCERY_ITEMS_COUNT = 5;
+  const MAX_GROCERY_ITEMS_COUNT = 50;
   
   $this.init = async () => {
     const dummyData = await fetch("../data/users.json")
@@ -648,7 +648,7 @@ window.addEventListener("load", function () {
       });
       
       setTimeout(function () {
-        $this.classList.add('selectedCharecter')
+        $this.classList.add('selectedCharacter')
       }, 500);
       
       setTimeout(function () {
@@ -703,7 +703,7 @@ window.addEventListener("load", function () {
         app.toggleBreakingBadScreen('open')
         setTimeout(function () {
           $select("multiple-elements", ".actor.disappear").forEach(actor => actor.classList.remove("disappear"))
-          $select("single-element", ".actor.selectedCharecter").classList.remove("selectedCharecter");
+          $select("single-element", ".actor.selectedCharacter").classList.remove("selectedCharacter");
         }, 90)
         break;
       }
